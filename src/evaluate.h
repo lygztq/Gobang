@@ -28,7 +28,7 @@ typedef enum _POINT_SCORE
 	reg_value = get_point_score(stone_num, blocked); \
 	if(reg_value>=0) value+=reg_value; \
 	else \
-	{
+	{  \
 		fprintf(stderr, "Error in function get_point_score, please check.\n"); \
 		return -1; \
 	}

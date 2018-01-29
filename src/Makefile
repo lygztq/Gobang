@@ -5,6 +5,8 @@ main.o: main.cpp
 	$(CC) -c $< -o $@
 translator.o: translator.cpp
 	$(CC) -c $< -o $@
+evaluate.o: evaluate.cpp
+	$(CC) -c $< -o $@
 judger.o: judger.cpp
 	$(CC) -c $< -o $@
 board.o: board.cpp
@@ -14,7 +16,7 @@ test.o: test.cpp
 #all: board.cpp test.cpp
 test: test.o board.o judger.o translator.o
 	$(CC) $^ -o test_board.exe
-all: main.o board.o judger.o translator.o
+all: main.o board.o judger.o translator.o evaluate.o
 	$(CC) $^ -o gobang.exe
 
 clean:

@@ -1,10 +1,10 @@
 #include "judger.h"
 
-static inline get_index(int id, int &x, int &y)
-{
-	x = id / BOARD_SIZE;
-	y = id % BOARD_SIZE;
-}
+// static inline get_index(int id, int &x, int &y)
+// {
+// 	x = id / BOARD_SIZE;
+// 	y = id % BOARD_SIZE;
+// }
 
 judger::judger(void)
 {

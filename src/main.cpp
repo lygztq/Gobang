@@ -62,7 +62,7 @@ void gaming()
 
 									// ask the player whether save the game.
 									yse_or_no = '?';
-									fflush();
+									fflush(stdout);
 									while(yse_or_no!='n' and yse_or_no!='y')
 									{
 										printf("Do you want to save this game?(y/n)\n");
