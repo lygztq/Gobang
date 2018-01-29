@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define abs(x) (x>=0)?x:-x;
+
 // Board size
 #define BOARD_SIZE 15
 #define TOTAL_BLANK BOARD_SIZE*BOARD_SIZE
@@ -29,6 +31,10 @@
 // Change color
 #define next_color(color) \
 	color = (color==BLACK)? WHITE:BLACK;
+
+// Calculate the Manhattan distance
+#define man_dis(x1,y1,x2,y2,dis) \
+	dis = abs(x1-x2) + abs(y1-y2);
 
 // The definition of stone
 typedef enum _STONE

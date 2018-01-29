@@ -7,10 +7,12 @@
 #include "constant.h"
 #include "judger.h"
 #include "error.h"
+#include "evaluate.h"
 
 
 // extern declaration
 class judger;
+class evaluator;
 
 /********************************************************************************************
 *
@@ -91,6 +93,7 @@ class judger;
 class board
 {
 	friend class judger;
+	friend class evaluator;
 private:
 	int consideration_domain[BOARD_SIZE][BOARD_SIZE];
 	stone board_look[BOARD_SIZE][BOARD_SIZE];
