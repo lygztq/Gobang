@@ -32,6 +32,9 @@
 #define next_color(color) \
 	color = (color==BLACK)? WHITE:BLACK;
 
+// opposite color
+#define opposite_color(color) (color==BLACK)? WHITE:BLACK
+
 // Calculate the Manhattan distance
 #define man_dis(x1,y1,x2,y2,dis) \
 	dis = abs(x1-x2) + abs(y1-y2);

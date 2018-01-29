@@ -7,19 +7,32 @@
 #include "constant.h"
 
 // score
-typedef enum 
+typedef int score;
+
+typedef enum _POINT_SCORE
 {
-	DOUBLE_BLOCK = 0
-	ONE = 1e1,
-	TWO = 1e2,
-	THREE = 1e3,
-	FOUR = 1e5,
-	FIVE = 1e6,
-	BLOCKED_ONE = 1,
-	BLCOKED_TWO = 1e1,
-	BLOCKED_THREE = 1e2,
-	BLOCKED_FOUR = 1e4,
-}score;
+	WRONG = -1,
+    DOUBLE_BLOCKED = 0,
+    ONE = 10,
+    TWO = 100,
+    THREE = 1000,
+    FOUR = 100000,
+    FIVE = 1000000,
+    BLOCKED_ONE = 1,
+    BLCOKED_TWO = 10,
+    BLOCKED_THREE = 100,
+    BLOCKED_FOUR = 10000
+}point_score;
+
+#define update_value(reg_value, stone_num, blocked, value) \
+	reg_value = get_point_score(stone_num, blocked); \
+	if(reg_value>=0) value+=reg_value; \
+	else \
+	{
+		fprintf(stderr, "Error in function get_point_score, please check.\n"); \
+		return -1; \
+	}
+
 
 // extern declaration
 class board;
@@ -46,8 +59,9 @@ class board;
 class evaluator
 {
 public:
-	double point_evaluate(board &b, int x, int y, stone curr_color);
-	double board_evaluate(board &b, stone curr_color);
+	point_score get_point_score(int stone_num, int blocked);
+	score point_evaluate(board &b, int x, int y, stone curr_color);
+	score board_evaluate(board &b, stone curr_color);
 };
 
 #endif
