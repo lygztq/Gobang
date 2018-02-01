@@ -76,6 +76,7 @@ bool board::is_valid(int x, int y)
 
 bool board::is_in_consideration(int x, int y)
 {
+	if(total_moves==0 and x == BOARD_SIZE/2 and y==BOARD_SIZE/2) return true; 
 	return (consideration_domain[x][y]!=0);
 }
 

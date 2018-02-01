@@ -3,6 +3,8 @@ CC=g++
 
 main.o: main.cpp
 	$(CC) -c $< -o $@
+search.o: search.cpp
+	$(CC) -c $< -o $@
 translator.o: translator.cpp
 	$(CC) -c $< -o $@
 evaluate.o: evaluate.cpp
@@ -16,7 +18,7 @@ test.o: test.cpp
 #all: board.cpp test.cpp
 test: test.o board.o judger.o translator.o
 	$(CC) $^ -o test_board.exe
-all: main.o board.o judger.o translator.o evaluate.o
+all: main.o board.o judger.o translator.o evaluate.o search.o
 	$(CC) $^ -o gobang.exe
 
 clean:

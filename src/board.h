@@ -8,11 +8,13 @@
 #include "judger.h"
 #include "error.h"
 #include "evaluate.h"
+#include "search.h"
 
 
 // extern declaration
 class judger;
-class evaluator;
+class search_tree;
+class fast_evaluator;
 
 /********************************************************************************************
 *
@@ -93,7 +95,9 @@ class evaluator;
 class board
 {
 	friend class judger;
+	friend class fast_evaluator;
 	friend class evaluator;
+	friend class search_tree;
 private:
 	int consideration_domain[BOARD_SIZE][BOARD_SIZE];
 	stone board_look[BOARD_SIZE][BOARD_SIZE];

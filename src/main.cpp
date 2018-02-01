@@ -4,6 +4,9 @@
 #include "board.h"
 #include "judger.h"
 #include "translator.h"
+#include "evaluate.h"
+#include "search.h"
+#include <vector>
 
 class judger;
 class board;
@@ -14,6 +17,8 @@ void gaming()
 	board game_board;
 	judger game_judger;
 	translator game_translator;
+	fast_evaluator game_evaluator;
+	search_tree tree;
 
 	int next_x, next_y, pre_x, pre_y, pre_id;
 	char yse_or_no;
@@ -23,6 +28,7 @@ void gaming()
 
 	while(comm!=EXIT)
 	{
+		int reg;
 		switch(comm)
 		{
 			case CLEAR_BOARD:	game_board.clear_board();
@@ -45,6 +51,7 @@ void gaming()
 								}
 
 								// add the stone to the board
+								tree.gen_search_node(game_board);
 								game_board.add_stone(next_x, next_y);
 								game_judger.add_log(next_x, next_y);
 
@@ -62,9 +69,9 @@ void gaming()
 
 									// ask the player whether save the game.
 									yse_or_no = '?';
-									fflush(stdout);
 									while(yse_or_no!='n' and yse_or_no!='y')
 									{
+										fflush(stdin);
 										printf("Do you want to save this game?(y/n)\n");
 										scanf("%c", &yse_or_no);
 										if(yse_or_no=='y')

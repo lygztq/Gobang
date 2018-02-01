@@ -13,9 +13,6 @@
 // max command length
 #define MAX_COMMAND_LEN 50
 
-// Some functional constant
-#define NOT_IN_BOARD -1
-
 // The name of the ai player
 #define AI_NAME "Gobang_player"
 
@@ -42,6 +39,7 @@
 // The definition of stone
 typedef enum _STONE
 {
+	NOT_IN_BOARD = -1,
 	NONE,
 	WHITE,
 	BLACK,
